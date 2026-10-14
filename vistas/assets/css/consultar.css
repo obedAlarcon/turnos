@@ -1,0 +1,288 @@
+:root {
+    --azul-oscuro: #16345c;
+    --azul: #2563eb;
+    --azul-hover: #1d4ed8;
+    --azul-claro: #eff6ff;
+    --fondo: #f3f6fb;
+    --texto: #172033;
+    --texto-secundario: #64748b;
+    --borde: #dce5f0;
+    --blanco: #ffffff;
+    --verde: #15803d;
+    --verde-fondo: #dcfce7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 18px;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.encabezado {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.encabezado h1 {
+    margin: 0 0 12px;
+    color: var(--azul-oscuro);
+    font-size: clamp(26px, 5vw, 34px);
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+.encabezado p {
+    max-width: 470px;
+    margin: 0 auto;
+    color: var(--texto-secundario);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.tarjeta {
+    margin-bottom: 22px;
+    padding: 28px;
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(22, 52, 92, 0.06);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--azul-oscuro);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+input {
+    display: block;
+    width: 100%;
+    min-height: 50px;
+    padding: 14px 15px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--azul);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.ayuda {
+    display: block;
+    margin-top: 9px;
+    color: var(--texto-secundario);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+button {
+    display: block;
+    width: 100%;
+    min-height: 50px;
+    margin-top: 22px;
+    padding: 14px 18px;
+    background: var(--azul);
+    border: none;
+    border-radius: 10px;
+    color: var(--blanco);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: var(--azul-hover);
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+.mensaje {
+    margin-bottom: 20px;
+    padding: 15px 17px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.mensaje.ok {
+    color: #166534;
+    background: var(--verde-fondo);
+    border-color: #bbf7d0;
+}
+
+.mensaje.error {
+    color: #991b1b;
+    background: #fef2f2;
+    border-color: #fecaca;
+}
+
+.resultado {
+    padding: 28px;
+    border-top: 4px solid var(--azul);
+}
+
+.resultado h2 {
+    margin: 0 0 12px;
+    color: var(--azul-oscuro);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.numero-turno {
+    margin-bottom: 24px;
+    color: var(--azul);
+    font-size: clamp(42px, 9vw, 54px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.dato {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid var(--borde);
+}
+
+.dato span {
+    color: var(--texto-secundario);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.dato strong {
+    color: var(--azul-oscuro);
+    font-size: 16px;
+    text-align: right;
+}
+
+.turnos-delante {
+    display: inline-flex;
+    min-width: 38px;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background: var(--azul-claro);
+    border-radius: 10px;
+    color: var(--azul) !important;
+    font-size: 20px !important;
+}
+
+.situacion-turno {
+    margin: 18px 0 0;
+    padding: 14px 16px;
+    background: var(--azul-claro);
+    border-radius: 10px;
+    color: var(--azul-oscuro);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.nota {
+    margin: 18px 4px 0;
+    color: var(--texto-secundario);
+    font-size: 12px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 26px 14px;
+    }
+
+    .encabezado {
+        margin-bottom: 22px;
+    }
+
+    .tarjeta {
+        padding: 21px;
+        border-radius: 14px;
+    }
+
+    .resultado {
+        padding: 22px 19px;
+    }
+
+    .dato {
+        gap: 10px;
+    }
+
+    .dato span {
+        font-size: 13px;
+    }
+
+    .dato strong {
+        font-size: 15px;
+    }
+}
+/* Alertas de proximidad del turno */
+.alerta-turno {
+    margin-bottom: 18px;
+    padding: 17px 18px;
+    border: 1px solid #bfdbfe;
+    border-left: 5px solid #2563eb;
+    border-radius: 12px;
+    background: #eff6ff;
+    color: #1e3a8a;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.alerta-turno strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+.alerta-turno.alerta-urgente {
+    border-color: #fbbf24;
+    border-left-color: #d97706;
+    background: #fffbeb;
+    color: #92400e;
+}
+
+.alerta-turno.alerta-final {
+    border-color: #86efac;
+    border-left-color: #16a34a;
+    background: #f0fdf4;
+    color: #166534;
+}

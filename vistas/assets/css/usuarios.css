@@ -1,0 +1,209 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    color: #243044;
+    background: #f4f6f9;
+}
+
+main {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.encabezado,
+.tarjeta {
+    padding: 22px;
+    margin-bottom: 22px;
+    background: #fff;
+    border: 1px solid #e1e6ee;
+    border-radius: 12px;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+}
+
+.descripcion {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    min-height: 40px;
+    padding: 9px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background: #fff;
+    color: #243044;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #9bb7d3;
+    outline-offset: 1px;
+    border-color: #254b73;
+}
+
+button,
+.boton {
+    display: inline-block;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 7px;
+    color: #fff;
+    background: #254b73;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+button:hover,
+.boton:hover {
+    background: #193956;
+}
+
+.boton-secundario {
+    background: #64748b;
+}
+
+.boton-secundario:hover {
+    background: #475569;
+}
+
+.boton-peligro {
+    background: #a83232;
+}
+
+.boton-peligro:hover {
+    background: #842525;
+}
+
+.boton-exito {
+    background: #247347;
+}
+
+.boton-exito:hover {
+    background: #185a35;
+}
+
+.mensaje {
+    padding: 13px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    background: #e7f4ea;
+    color: #205b35;
+    line-height: 1.5;
+}
+
+.mensaje.error {
+    background: #fbe9e9;
+    color: #8a2525;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background: #f8fafc;
+    white-space: nowrap;
+}
+
+td form {
+    min-width: 150px;
+}
+
+td form select {
+    margin-bottom: 8px;
+}
+
+td small {
+    display: inline-block;
+    margin-top: 5px;
+    color: #64748b;
+}
+
+.estado {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.activo {
+    color: #17633a;
+    background: #dcfce7;
+}
+
+.inactivo {
+    color: #922b2b;
+    background: #fee2e2;
+}
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .encabezado,
+    .tarjeta {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    th,
+    td {
+        padding: 9px;
+    }
+}
