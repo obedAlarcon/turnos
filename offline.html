@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#16345c">
+    <title>Sin conexión | CT Control de Turnos</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: #f3f6fb;
+            color: #172033;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        main {
+            width: 100%;
+            max-width: 430px;
+            padding: 36px 28px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(22, 52, 92, 0.10);
+        }
+
+        h1 {
+            color: #16345c;
+            font-size: 25px;
+        }
+
+        p {
+            margin-bottom: 24px;
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px 18px;
+            border: 0;
+            border-radius: 9px;
+            background: #16345c;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Sin conexión a Internet</h1>
+        <p>
+            CT Control de Turnos necesita conexión para iniciar sesión
+            y consultar los turnos. Comprueba tu conexión e inténtalo
+            nuevamente.
+        </p>
+        <button type="button" onclick="location.reload()">
+            Intentar nuevamente
+        </button>
+    </main>
+</body>
+</html>

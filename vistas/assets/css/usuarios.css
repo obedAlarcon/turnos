@@ -1,6 +1,14 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
 
 * {
     box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-width: 0;
 }
 
 body {
@@ -12,12 +20,20 @@ body {
 }
 
 main {
+    width: 100%;
     max-width: 1150px;
+    min-width: 0;
     margin: 0 auto;
 }
 
+/* =========================================
+   ENCABEZADOS Y TARJETAS
+========================================= */
+
 .encabezado,
 .tarjeta {
+    width: 100%;
+    min-width: 0;
     padding: 22px;
     margin-bottom: 22px;
     background: #fff;
@@ -35,9 +51,13 @@ h2 {
     line-height: 1.6;
 }
 
+/* =========================================
+   FORMULARIOS
+========================================= */
+
 .formulario {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
     gap: 16px;
 }
 
@@ -49,13 +69,17 @@ label {
 
 input,
 select {
+    display: block;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     min-height: 40px;
     padding: 9px;
     border: 1px solid #cbd5e1;
     border-radius: 7px;
     background: #fff;
     color: #243044;
+    font: inherit;
 }
 
 input:focus,
@@ -65,9 +89,14 @@ select:focus {
     border-color: #254b73;
 }
 
+/* =========================================
+   BOTONES
+========================================= */
+
 button,
 .boton {
     display: inline-block;
+    max-width: 100%;
     padding: 10px 14px;
     border: 0;
     border-radius: 7px;
@@ -108,13 +137,19 @@ button:hover,
     background: #185a35;
 }
 
+/* =========================================
+   MENSAJES
+========================================= */
+
 .mensaje {
+    width: 100%;
     padding: 13px;
     margin-bottom: 18px;
     border-radius: 8px;
     background: #e7f4ea;
     color: #205b35;
     line-height: 1.5;
+    overflow-wrap: anywhere;
 }
 
 .mensaje.error {
@@ -122,12 +157,18 @@ button:hover,
     color: #8a2525;
 }
 
+/* =========================================
+   TABLA DE ADMINISTRADORES - ESCRITORIO
+========================================= */
+
 .tabla-contenedor {
-    overflow-x: auto;
     width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-table {
+.tabla-contenedor table {
     width: 100%;
     border-collapse: collapse;
 }
@@ -147,6 +188,7 @@ th {
 
 td form {
     min-width: 150px;
+    margin: 0;
 }
 
 td form select {
@@ -158,6 +200,10 @@ td small {
     margin-top: 5px;
     color: #64748b;
 }
+
+/* =========================================
+   ESTADOS
+========================================= */
 
 .estado {
     display: inline-block;
@@ -178,32 +224,230 @@ td small {
     background: #fee2e2;
 }
 
+/* =========================================
+   ACCIONES
+========================================= */
+
 .acciones {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
-@media (max-width: 600px) {
+/* =========================================
+   MÓVILES Y TABLETAS
+========================================= */
+
+@media screen and (max-width: 768px) {
+
     body {
         padding: 12px;
     }
 
+    main {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
     .encabezado,
     .tarjeta {
-        padding: 16px;
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 14px;
+        border-radius: 10px;
     }
 
     h1 {
         font-size: 24px;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
     }
 
     h2 {
         font-size: 19px;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
     }
 
-    th,
-    td {
+    .descripcion {
+        font-size: 14px;
+    }
+
+    /* Formulario de crear administrador */
+    .formulario {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    input,
+    select {
+        width: 100%;
+        min-width: 0;
+    }
+
+    button,
+    .boton {
+        min-height: 42px;
+    }
+
+    /* =====================================
+       TABLA CONVERTIDA EN TARJETAS
+    ===================================== */
+
+    .tabla-contenedor {
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
+    }
+
+    .tabla-contenedor table,
+    .tabla-contenedor tbody {
+        display: block;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .tabla-contenedor thead {
+        display: none;
+    }
+
+    /* Cada administrador es una tarjeta */
+    .tabla-contenedor tbody tr {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        margin: 0 0 16px;
+        padding: 12px;
+        background: #fff;
+        border: 1px solid #e1e6ee;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(36, 48, 68, 0.06);
+    }
+
+    /* Cada dato de la tarjeta */
+    .tabla-contenedor tbody td {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        align-items: start;
+        gap: 10px;
+        width: 100%;
+        min-width: 0;
+        padding: 11px 0;
+        border-bottom: 1px solid #edf0f4;
+        font-size: 14px;
+        text-align: left;
+        overflow-wrap: anywhere;
+    }
+
+    .tabla-contenedor tbody td:last-child {
+        border-bottom: none;
+    }
+
+    /* Etiqueta de cada columna */
+    .tabla-contenedor tbody td:nth-child(1)::before {
+        content: "Administrador";
+    }
+
+    .tabla-contenedor tbody td:nth-child(2)::before {
+        content: "Sede asignada";
+    }
+
+    .tabla-contenedor tbody td:nth-child(3)::before {
+        content: "Estado";
+    }
+
+    .tabla-contenedor tbody td:nth-child(4)::before {
+        content: "Cambiar sede";
+    }
+
+    .tabla-contenedor tbody td:nth-child(5)::before {
+        content: "Acceso";
+    }
+
+    .tabla-contenedor tbody td::before {
+        display: block;
+        min-width: 0;
+        color: #64748b;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1.5;
+    }
+
+    /* Nombre, teléfono y fecha */
+    .tabla-contenedor tbody td strong,
+    .tabla-contenedor tbody td small {
+        overflow-wrap: anywhere;
+    }
+
+    /* Formularios dentro de las tarjetas */
+    .tabla-contenedor tbody td form {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .tabla-contenedor tbody td label {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .tabla-contenedor tbody td select {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin-bottom: 8px;
+        font-size: 13px;
+    }
+
+    /* Botones cómodos para tocar */
+    .tabla-contenedor tbody td button {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        min-height: 42px;
+        padding: 9px 8px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        font-size: 13px;
+    }
+
+    .tabla-contenedor tbody td .estado {
+        justify-self: start;
+        align-self: start;
+    }
+}
+
+/* =========================================
+   TELÉFONOS PEQUEÑOS
+========================================= */
+
+@media screen and (max-width: 380px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .encabezado,
+    .tarjeta {
+        padding: 11px;
+    }
+
+    h1 {
+        font-size: 21px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .tabla-contenedor tbody tr {
         padding: 9px;
+    }
+
+    .tabla-contenedor tbody td {
+        grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+        gap: 7px;
+        font-size: 13px;
     }
 }

@@ -61,32 +61,38 @@ class ModeloTurnos
         return $stmt->fetchAll();
     }
 
-    static public function mdlConsultarTurnosPorTelefono($telefono, $sedeId = 1)
-    {
-        $conexion = Conexion::conectar();
 
-        $stmt = $conexion->prepare(
-            "SELECT
-                t.tipo,
-                t.numero,
-                t.fecha_turno,
-                CASE t.tipo
-                    WHEN 'G' THEN s.turno_actual_g
-                    WHEN 'R' THEN s.turno_actual_r
-                    WHEN 'C' THEN s.turno_actual_c
-                END AS turno_actual
-             FROM turnos t
-             INNER JOIN sedes s ON s.id = t.sede_id
-             WHERE t.telefono_cliente = :telefono
-               AND t.sede_id = :sede_id
-               AND t.fecha_turno = CURDATE()
-             ORDER BY FIELD(t.tipo, 'G', 'R', 'C'), t.numero ASC"
-        );
 
-        $stmt->bindValue(":telefono", $telefono, PDO::PARAM_STR);
-        $stmt->bindValue(":sede_id", $sedeId, PDO::PARAM_INT);
-        $stmt->execute();
+static public function mdlConsultarTurnosPorTelefono($telefono)
+{
+    $conexion = Conexion::conectar();
 
-        return $stmt->fetchAll();
-    }
+    $stmt = $conexion->prepare(
+        "SELECT
+            t.tipo,
+            t.numero,
+            t.fecha_turno,
+            t.nombre_cliente,
+            t.sede_id,
+            s.nombre AS nombre_sede,
+            CASE t.tipo
+                WHEN 'G' THEN s.turno_actual_g
+                WHEN 'R' THEN s.turno_actual_r
+                WHEN 'C' THEN s.turno_actual_c
+            END AS turno_actual
+         FROM turnos t
+         INNER JOIN sedes s ON s.id = t.sede_id
+         WHERE t.telefono_cliente = :telefono
+           AND t.fecha_turno = CURDATE()
+         ORDER BY t.sede_id ASC,
+                  FIELD(t.tipo, 'G', 'R', 'C'),
+                  t.numero ASC"
+    );
+
+    $stmt->bindValue(":telefono", $telefono, PDO::PARAM_STR);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 }

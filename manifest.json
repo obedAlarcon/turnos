@@ -1,0 +1,28 @@
+
+{
+  "id": "/turnos/",
+  "name": "c20 Control de turnos",
+  "short_name": "c20turnos",
+  "description": "Sistema de gestión y control de turnos de c20software",
+  "lang": "es-CO",
+  "start_url": "/turnos/vistas/auth/login.php",
+  "scope": "/turnos/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3f6fb",
+  "theme_color": "#16345c",
+  "icons": [
+    {
+      "src": "/turnos/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/turnos/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

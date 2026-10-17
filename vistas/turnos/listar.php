@@ -1,11 +1,24 @@
+
 <?php
 
 require_once __DIR__ . "/../../configuracion/seguridad.php";
 exigirRol(["admin", "superadmin"]);
 
 require_once __DIR__ . "/../../controladores/turnos.controlador.php";
+require_once __DIR__ . "/../../modelos/sede.modelo.php";
 
 $turnos = ControladorTurnos::ctrListarTurnosHoy();
+
+$sedeId = $_SESSION["usuario"]["sede_id"] ?? null;
+$nombreSede = "Sin sede asignada";
+
+if ($sedeId !== null) {
+    $sede = ModeloSedes::mdlMostrarSedePorId((int) $sedeId);
+
+    if ($sede) {
+        $nombreSede = $sede["nombre"];
+    }
+}
 
 function escaparListado($valor): string
 {
@@ -28,8 +41,8 @@ function escaparListado($valor): string
         <div>
             <h1>Fichas registradas hoy</h1>
             <p>
-                Se muestran únicamente las fichas de la jornada actual
-                de la Sede principal.
+                Jornada actual de la sede:
+                <strong><?= escaparListado($nombreSede) ?></strong>.
             </p>
         </div>
 

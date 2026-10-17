@@ -117,7 +117,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 data-tipo="<?= escaparConsulta($turno["tipo"]) ?>"
                 data-numero="<?= $numero ?>"
             >
-                <h2>Fila <?= escaparConsulta($tipoNombre) ?></h2>
+                
+<h2>Fila <?= escaparConsulta($tipoNombre) ?></h2>
+
+<div class="dato">
+    <span>Nombre del cliente</span>
+    <strong>
+        <?= escaparConsulta($turno["nombre_cliente"] ?? "No disponible") ?>
+    </strong>
+</div>
+
 
                 <div class="numero-turno">
                     <?= escaparConsulta($turno["tipo"]) ?>-<?= $numero ?>

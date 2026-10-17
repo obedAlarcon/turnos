@@ -28,8 +28,10 @@ function escaparLogin($valor): string
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#16345c">
 
-    <title>Iniciar sesión | Control de turnos</title>
+<link rel="manifest" href="../../manifest.json">
+    <title>Iniciar sesión | c20turnos</title>
 
     <link rel="stylesheet" href="../assets/css/login.css">
 </head>
@@ -41,10 +43,10 @@ function escaparLogin($valor): string
     <aside class="login-brand-panel">
 
         <div class="login-brand">
-            <div class="login-brand-icon">CT</div>
+            <div class="login-brand-icon">C20</div>
 
             <div>
-                <p class="login-brand-name">Control de turnos</p>
+                <p class="login-brand-name">c20 Control de turnos</p>
                 <p class="login-brand-description">
                     Gestión sencilla y organizada
                 </p>
@@ -88,7 +90,7 @@ function escaparLogin($valor): string
         </div>
 
         <div class="login-brand-footer">
-            <span>Control de turnos</span>
+            <span>c20 Control de turnos</span>
             <span class="login-security">Acceso privado y seguro</span>
         </div>
 
@@ -100,10 +102,10 @@ function escaparLogin($valor): string
         <section class="login-card">
 
             <div class="login-mobile-brand">
-                <div class="login-brand-icon">CT</div>
+                <div class="login-brand-icon">C20</div>
 
                 <div>
-                    <p class="login-brand-name">Control de turnos</p>
+                    <p class="login-brand-name">c20 Control de turnos</p>
                     <p class="login-brand-description">
                         Gestión sencilla y organizada
                     </p>
@@ -195,7 +197,7 @@ function escaparLogin($valor): string
                     Acceso exclusivo para usuarios autorizados.
                 </p>
                 <p>
-                    <strong>Control de turnos</strong>
+                    <strong>c20turnos</strong>
                 </p>
             </footer>
 
@@ -222,5 +224,19 @@ function escaparLogin($valor): string
     });
 </script>
 
+
+<script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+            navigator.serviceWorker.register("../../service-worker.js")
+                .then(function (registro) {
+                    console.log("PWA preparada:", registro.scope);
+                })
+                .catch(function (error) {
+                    console.error("Error al registrar la PWA:", error);
+                });
+        });
+    }
+</script>
 </body>
 </html>
